@@ -1,0 +1,1 @@
+export { TiktokProfile } from "./TiktokProfile.tsx";
