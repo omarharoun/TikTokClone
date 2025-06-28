@@ -272,6 +272,26 @@ export const videoHelpers = {
     } catch (error) {
       return false;
     }
+  },
+
+  // Delete video
+  async deleteVideo(videoId: string) {
+    try {
+      const currentUser = authHelpers.getCurrentUser();
+      if (!currentUser) throw new Error('Not authenticated');
+
+      // Check if user owns the video
+      const video = await pb.collection('videos').getOne(videoId);
+      if (video.user !== currentUser.id) {
+        throw new Error('You can only delete your own videos');
+      }
+
+      // Delete the video
+      await pb.collection('videos').delete(videoId);
+      return { success: true };
+    } catch (error: any) {
+      return { success: false, error: error.message };
+    }
   }
 };
 

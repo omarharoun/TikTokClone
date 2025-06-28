@@ -10,7 +10,7 @@ import { TiktokFollowing } from "./screens/TiktokFollowing";
 
 export const App = (): JSX.Element => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black w-full overflow-x-hidden">
       <Routes>
         <Route path="/" element={<TiktokHome />} />
         <Route path="/home" element={<Navigate to="/" replace />} />

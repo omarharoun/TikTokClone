@@ -20,57 +20,57 @@ export const BottomNavigation = (): JSX.Element => {
   };
 
   return (
-    <div className="absolute w-[414px] h-[83px] top-[813px] left-0">
-      <div className="absolute w-[414px] h-[83px] top-0 left-0 bg-black">
+    <div className="fixed bottom-0 left-0 right-0 w-full h-20 bg-black z-50 mobile-safe-area">
+      <div className="w-full h-full bg-black relative">
         {/* Home */}
-        <div className="absolute top-2 left-[37px] flex flex-col items-center">
+        <div className="absolute top-2 left-0 w-1/4 flex flex-col items-center">
           <Button
             variant="ghost"
-            className="p-0 h-auto bg-transparent hover:bg-transparent"
+            className="p-0 h-auto bg-transparent hover:bg-transparent min-w-[44px] min-h-[44px]"
             onClick={() => navigate("/")}
           >
             <img
-              className="w-6 h-6"
+              className="w-7 h-7"
               alt="Home icon"
               src="/home-solid-icon.svg"
             />
           </Button>
-          <div className={`[font-family:'Proxima_Nova-${isActive("/") ? "Semibold" : "Regular"}',Helvetica] font-normal text-white text-[10px] text-center tracking-[0.15px] leading-[normal] mt-1 ${!isActive("/") ? "opacity-60" : ""}`}>
+          <div className={`[font-family:'Proxima_Nova-${isActive("/") ? "Semibold" : "Regular"}',Helvetica] font-normal text-white text-[11px] text-center tracking-[0.15px] leading-[normal] mt-1 ${!isActive("/") ? "opacity-60" : ""}`}>
             Home
           </div>
         </div>
 
         {/* Discover */}
-        <div className="absolute top-2 left-[115px] flex flex-col items-center">
+        <div className="absolute top-2 left-1/4 w-1/4 flex flex-col items-center">
           <Button
             variant="ghost"
-            className="p-0 h-auto bg-transparent hover:bg-transparent"
+            className="p-0 h-auto bg-transparent hover:bg-transparent min-w-[44px] min-h-[44px]"
             onClick={() => navigate("/discover")}
           >
             <img
-              className="w-6 h-6"
+              className="w-7 h-7"
               alt="Discover icon"
               src="/search-icon.svg"
             />
           </Button>
-          <div className={`[font-family:'Proxima_Nova-${isActive("/discover") ? "Semibold" : "Regular"}',Helvetica] font-normal text-white text-[10px] text-center tracking-[0.15px] leading-[normal] mt-1 ${!isActive("/discover") ? "opacity-60" : ""}`}>
+          <div className={`[font-family:'Proxima_Nova-${isActive("/discover") ? "Semibold" : "Regular"}',Helvetica] font-normal text-white text-[11px] text-center tracking-[0.15px] leading-[normal] mt-1 ${!isActive("/discover") ? "opacity-60" : ""}`}>
             Discover
           </div>
         </div>
 
         {/* Create Button */}
-        <div className="absolute top-2 left-[186px] flex flex-col items-center">
+        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
           <Button
             variant="ghost"
-            className="p-0 h-auto bg-transparent hover:bg-transparent"
+            className="p-0 h-auto bg-transparent hover:bg-transparent min-w-[44px] min-h-[44px]"
             onClick={() => navigate("/camera")}
           >
-            <div className="relative w-[43px] h-7">
-              <div className="absolute w-9 h-7 top-0 left-[7px] bg-[#e1306c] rounded-lg" />
-              <div className="absolute w-9 h-7 top-0 left-0 bg-[#25f4ee] rounded-lg" />
-              <div className="absolute w-9 h-7 top-0 left-1 bg-white rounded-lg flex items-center justify-center">
+            <div className="relative w-[48px] h-8">
+              <div className="absolute w-10 h-8 top-0 left-[8px] bg-[#e1306c] rounded-lg" />
+              <div className="absolute w-10 h-8 top-0 left-0 bg-[#25f4ee] rounded-lg" />
+              <div className="absolute w-10 h-8 top-0 left-1 bg-white rounded-lg flex items-center justify-center">
                 <img
-                  className="w-[13px] h-[13px]"
+                  className="w-[15px] h-[15px]"
                   alt="Plus icon"
                   src="/plus-icon.svg"
                 />
@@ -80,44 +80,44 @@ export const BottomNavigation = (): JSX.Element => {
         </div>
 
         {/* Inbox */}
-        <div className="absolute top-2 left-[290px] flex flex-col items-center">
+        <div className="absolute top-2 left-3/4 w-1/4 flex flex-col items-center">
           <Button
             variant="ghost"
-            className="p-0 h-auto bg-transparent hover:bg-transparent"
+            className="p-0 h-auto bg-transparent hover:bg-transparent min-w-[44px] min-h-[44px]"
             onClick={() => navigate("/inbox")}
           >
             <img
-              className="w-6 h-6"
+              className="w-7 h-7"
               alt="Inbox icon"
               src="/message-stroke-icon.svg"
             />
           </Button>
-          <div className={`[font-family:'Proxima_Nova-${isActive("/inbox") ? "Semibold" : "Regular"}',Helvetica] font-normal text-white text-[10px] text-center tracking-[0.15px] leading-[normal] mt-1 ${!isActive("/inbox") ? "opacity-60" : ""}`}>
+          <div className={`[font-family:'Proxima_Nova-${isActive("/inbox") ? "Semibold" : "Regular"}',Helvetica] font-normal text-white text-[11px] text-center tracking-[0.15px] leading-[normal] mt-1 ${!isActive("/inbox") ? "opacity-60" : ""}`}>
             Inbox
           </div>
         </div>
 
         {/* Me */}
-        <div className="absolute top-2 left-[372px] flex flex-col items-center">
+        <div className="absolute top-2 right-0 w-1/4 flex flex-col items-center">
           <Button
             variant="ghost"
-            className="p-0 h-auto bg-transparent hover:bg-transparent"
+            className="p-0 h-auto bg-transparent hover:bg-transparent min-w-[44px] min-h-[44px]"
             onClick={() => navigate("/profile")}
           >
             <img
-              className="w-6 h-6"
+              className="w-7 h-7"
               alt="Me icon"
               src="/account-stroke-icon.svg"
             />
           </Button>
-          <div className={`[font-family:'Proxima_Nova-${isActive("/profile") ? "Semibold" : "Regular"}',Helvetica] font-normal text-white text-[10px] text-center tracking-[0.15px] leading-[normal] mt-1 ${!isActive("/profile") ? "opacity-60" : ""}`}>
+          <div className={`[font-family:'Proxima_Nova-${isActive("/profile") ? "Semibold" : "Regular"}',Helvetica] font-normal text-white text-[11px] text-center tracking-[0.15px] leading-[normal] mt-1 ${!isActive("/profile") ? "opacity-60" : ""}`}>
             Me
           </div>
         </div>
       </div>
 
       {/* Home Indicator */}
-      <div className="absolute w-[134px] h-[5px] top-[61px] left-[140px] bg-white rounded-[100px]" />
+      <div className="absolute w-[134px] h-[5px] bottom-2 left-1/2 transform -translate-x-1/2 bg-white rounded-[100px]" />
     </div>
   );
 };

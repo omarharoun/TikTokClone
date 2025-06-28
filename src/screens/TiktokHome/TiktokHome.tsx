@@ -170,10 +170,10 @@ export const TiktokHome = (): JSX.Element => {
   }, [currentVideoIndex]);
 
   return (
-    <div className="bg-transparent flex flex-row justify-center w-full">
+    <div className="bg-black w-full min-h-screen responsive">
       <div 
         ref={containerRef}
-        className="bg-cover bg-[50%_50%] w-[414px] h-[896px] relative transition-transform duration-200 ease-out"
+        className="bg-cover bg-center w-full min-h-screen relative transition-transform duration-200 ease-out responsive"
         style={{ backgroundImage: `url(${currentVideo.background})` }}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
@@ -196,18 +196,18 @@ export const TiktokHome = (): JSX.Element => {
         )}
 
         {/* Interaction Buttons */}
-        <div className="absolute w-9 h-52 top-[514px] left-[366px] flex flex-col gap-5">
+        <div className="absolute right-4 bottom-32 flex flex-col gap-6 z-10">
           {interactionButtons.map((button, index) => (
             <div key={index} className="flex flex-col items-center opacity-90">
               <Button
                 variant="ghost"
-                className="p-0 h-auto bg-transparent hover:bg-transparent transition-transform duration-200 hover:scale-110"
+                className="p-0 h-auto bg-transparent hover:bg-transparent transition-transform duration-200 hover:scale-110 min-w-[48px] min-h-[48px]"
                 onClick={button.action}
               >
                 {index === 0 ? (
                   // Heart button - filled when liked, outline when not
                   <svg 
-                    className={`w-11 h-10 transition-all duration-300 ${
+                    className={`w-12 h-12 transition-all duration-300 ${
                       button.isLiked ? 'text-red-500' : 'text-white'
                     }`} 
                     fill={button.isLiked ? "currentColor" : "none"}
@@ -223,13 +223,13 @@ export const TiktokHome = (): JSX.Element => {
                   </svg>
                 ) : (
                   <img
-                    className="w-11 h-10 -mt-1 -ml-1"
+                    className="w-12 h-12"
                     alt={`${button.label || "Interaction"} icon`}
                     src={button.icon}
                   />
                 )}
               </Button>
-              <div className={`[text-shadow:1px_1px_0px_#0000004c] [font-family:'Proxima_Nova-Semibold',Helvetica] font-normal text-[13px] text-center tracking-[0] leading-[normal] shadow-text-drop mt-1 transition-colors duration-300 ${
+              <div className={`[text-shadow:1px_1px_0px_#0000004c] [font-family:'Proxima_Nova-Semibold',Helvetica] font-normal text-[14px] text-center tracking-[0] leading-[normal] shadow-text-drop mt-2 transition-colors duration-300 ${
                 index === 0 && button.isLiked ? 'text-red-500' : 'text-white'
               }`}>
                 {button.count || button.label}
@@ -239,30 +239,30 @@ export const TiktokHome = (): JSX.Element => {
         </div>
 
         {/* Video Info Section */}
-        <Card className="absolute w-[394px] h-[81px] top-[727px] left-3 bg-transparent border-none shadow-none">
+        <Card className="absolute bottom-24 left-4 right-4 bg-transparent border-none shadow-none">
           <CardContent className="p-0">
-            <div className="absolute w-[336px] h-[49px] top-0 left-0">
+            <div className="w-full">
               <Button
                 variant="ghost"
-                className="absolute top-0 left-0 [font-family:'Proxima_Nova-Regular',Helvetica] font-normal text-[17px] tracking-[0] leading-[normal] p-0 h-auto bg-transparent hover:bg-transparent text-left"
+                className="w-full text-left p-0 h-auto bg-transparent hover:bg-transparent [font-family:'Proxima_Nova-Regular',Helvetica] font-normal text-[18px] tracking-[0] leading-[normal]"
                 onClick={handleUserClick}
               >
                 <span className="text-white">@{currentVideo.user}</span>
                 <span className="text-[#ffffff99]"> · </span>
-                <span className="text-[#ffffff99] text-[15px]">{currentVideo.date}</span>
+                <span className="text-[#ffffff99] text-[16px]">{currentVideo.date}</span>
               </Button>
-              <div className="absolute w-[332px] top-[29px] left-0 [font-family:'Proxima_Nova-Semibold',Helvetica] font-normal text-white text-[15px] tracking-[0] leading-[19.5px]">
+              <div className="w-full mt-3 [font-family:'Proxima_Nova-Semibold',Helvetica] font-normal text-white text-[16px] tracking-[0] leading-[20px]">
                 {currentVideo.description}
               </div>
             </div>
 
-            <div className="absolute w-52 h-5 top-14 left-px flex items-center">
+            <div className="w-full h-6 mt-4 flex items-center">
               <img
-                className="w-3 h-3 mr-2"
+                className="w-4 h-4 mr-3"
                 alt="Music icon"
                 src="/music-icon.svg"
               />
-              <div className="w-[185px] [background:linear-gradient(270deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0.9)_5%,rgba(255,255,255,0.9)_96%,rgba(255,255,255,0)_100%,rgba(255,255,255,0)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'Proxima_Nova-Regular',Helvetica] font-normal text-transparent text-[15px] tracking-[0] leading-[19.5px] whitespace-nowrap">
+              <div className="flex-1 [background:linear-gradient(270deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0.9)_5%,rgba(255,255,255,0.9)_96%,rgba(255,255,255,0)_100%,rgba(255,255,255,0)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] [font-family:'Proxima_Nova-Regular',Helvetica] font-normal text-transparent text-[16px] tracking-[0] leading-[20px]">
                 {currentVideo.music}
               </div>
             </div>
@@ -270,7 +270,7 @@ export const TiktokHome = (): JSX.Element => {
         </Card>
 
         {/* Swipe Instruction */}
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white/60 text-xs text-center">
+        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-white/60 text-sm text-center">
           Swipe up for next video
         </div>
 
